@@ -6,21 +6,7 @@ part of 'roles.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$rolesHash() => r'a5beada7816e2743dcf30ee9e31fa8717dd60e4b';
-
-/// See also [roles].
-@ProviderFor(roles)
-final rolesProvider = AutoDisposeFutureProvider<List<Role>>.internal(
-  roles,
-  name: r'rolesProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$rolesHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef RolesRef = AutoDisposeFutureProviderRef<List<Role>>;
-String _$createRoleHash() => r'df71fbb19f475a3431563d9a213f0d4c42d4e5e9';
+String _$getRoleHash() => r'd560919f347e1c1838750e1968f02e963cc01d11';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -43,6 +29,101 @@ class _SystemHash {
   }
 }
 
+typedef GetRoleRef = AutoDisposeFutureProviderRef<Role>;
+
+/// See also [getRole].
+@ProviderFor(getRole)
+const getRoleProvider = GetRoleFamily();
+
+/// See also [getRole].
+class GetRoleFamily extends Family<AsyncValue<Role>> {
+  /// See also [getRole].
+  const GetRoleFamily();
+
+  /// See also [getRole].
+  GetRoleProvider call(
+    int roleId,
+  ) {
+    return GetRoleProvider(
+      roleId,
+    );
+  }
+
+  @override
+  GetRoleProvider getProviderOverride(
+    covariant GetRoleProvider provider,
+  ) {
+    return call(
+      provider.roleId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'getRoleProvider';
+}
+
+/// See also [getRole].
+class GetRoleProvider extends AutoDisposeFutureProvider<Role> {
+  /// See also [getRole].
+  GetRoleProvider(
+    this.roleId,
+  ) : super.internal(
+          (ref) => getRole(
+            ref,
+            roleId,
+          ),
+          from: getRoleProvider,
+          name: r'getRoleProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$getRoleHash,
+          dependencies: GetRoleFamily._dependencies,
+          allTransitiveDependencies: GetRoleFamily._allTransitiveDependencies,
+        );
+
+  final int roleId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is GetRoleProvider && other.roleId == roleId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, roleId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$rolesHash() => r'a5beada7816e2743dcf30ee9e31fa8717dd60e4b';
+
+/// See also [roles].
+@ProviderFor(roles)
+final rolesProvider = AutoDisposeFutureProvider<List<Role>>.internal(
+  roles,
+  name: r'rolesProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$rolesHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef RolesRef = AutoDisposeFutureProviderRef<List<Role>>;
+String _$createRoleHash() => r'df71fbb19f475a3431563d9a213f0d4c42d4e5e9';
 typedef CreateRoleRef = AutoDisposeFutureProviderRef<int>;
 
 /// See also [createRole].
@@ -283,6 +364,171 @@ class DeleteRoleProvider extends AutoDisposeFutureProvider<bool> {
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, roleId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$addRoleToUserHash() => r'1e550c61decd01958d80b9a0e29fb585987f763a';
+typedef AddRoleToUserRef = AutoDisposeFutureProviderRef<bool>;
+
+/// See also [addRoleToUser].
+@ProviderFor(addRoleToUser)
+const addRoleToUserProvider = AddRoleToUserFamily();
+
+/// See also [addRoleToUser].
+class AddRoleToUserFamily extends Family<AsyncValue<bool>> {
+  /// See also [addRoleToUser].
+  const AddRoleToUserFamily();
+
+  /// See also [addRoleToUser].
+  AddRoleToUserProvider call(
+    AddRoleToUserRequest dto,
+  ) {
+    return AddRoleToUserProvider(
+      dto,
+    );
+  }
+
+  @override
+  AddRoleToUserProvider getProviderOverride(
+    covariant AddRoleToUserProvider provider,
+  ) {
+    return call(
+      provider.dto,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'addRoleToUserProvider';
+}
+
+/// See also [addRoleToUser].
+class AddRoleToUserProvider extends AutoDisposeFutureProvider<bool> {
+  /// See also [addRoleToUser].
+  AddRoleToUserProvider(
+    this.dto,
+  ) : super.internal(
+          (ref) => addRoleToUser(
+            ref,
+            dto,
+          ),
+          from: addRoleToUserProvider,
+          name: r'addRoleToUserProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$addRoleToUserHash,
+          dependencies: AddRoleToUserFamily._dependencies,
+          allTransitiveDependencies:
+              AddRoleToUserFamily._allTransitiveDependencies,
+        );
+
+  final AddRoleToUserRequest dto;
+
+  @override
+  bool operator ==(Object other) {
+    return other is AddRoleToUserProvider && other.dto == dto;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, dto.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$removeRoleFromUserHash() =>
+    r'363f963e2e53d3c1ad94c2720a207885a67a8cdb';
+typedef RemoveRoleFromUserRef = AutoDisposeFutureProviderRef<bool>;
+
+/// See also [removeRoleFromUser].
+@ProviderFor(removeRoleFromUser)
+const removeRoleFromUserProvider = RemoveRoleFromUserFamily();
+
+/// See also [removeRoleFromUser].
+class RemoveRoleFromUserFamily extends Family<AsyncValue<bool>> {
+  /// See also [removeRoleFromUser].
+  const RemoveRoleFromUserFamily();
+
+  /// See also [removeRoleFromUser].
+  RemoveRoleFromUserProvider call(
+    RemoveRoleFromUserRequest dto,
+  ) {
+    return RemoveRoleFromUserProvider(
+      dto,
+    );
+  }
+
+  @override
+  RemoveRoleFromUserProvider getProviderOverride(
+    covariant RemoveRoleFromUserProvider provider,
+  ) {
+    return call(
+      provider.dto,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'removeRoleFromUserProvider';
+}
+
+/// See also [removeRoleFromUser].
+class RemoveRoleFromUserProvider extends AutoDisposeFutureProvider<bool> {
+  /// See also [removeRoleFromUser].
+  RemoveRoleFromUserProvider(
+    this.dto,
+  ) : super.internal(
+          (ref) => removeRoleFromUser(
+            ref,
+            dto,
+          ),
+          from: removeRoleFromUserProvider,
+          name: r'removeRoleFromUserProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$removeRoleFromUserHash,
+          dependencies: RemoveRoleFromUserFamily._dependencies,
+          allTransitiveDependencies:
+              RemoveRoleFromUserFamily._allTransitiveDependencies,
+        );
+
+  final RemoveRoleFromUserRequest dto;
+
+  @override
+  bool operator ==(Object other) {
+    return other is RemoveRoleFromUserProvider && other.dto == dto;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, dto.hashCode);
 
     return _SystemHash.finish(hash);
   }

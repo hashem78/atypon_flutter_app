@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:atypon_app/models/role/role.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,5 +13,5 @@ class User with _$User {
     Set<Role>? roles,
   }) = _User;
 
-  factory User.fromJson(String json) => _$UserFromJson(jsonDecode(json));
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }

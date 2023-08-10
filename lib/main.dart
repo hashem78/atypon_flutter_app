@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:atypon_app/dtos/login_request/loginrequest.dart';
 import 'package:atypon_app/helpers.dart';
 import 'package:atypon_app/models/user/user.dart';
+import 'package:atypon_app/screens/manage_users/manage_users_screen.dart';
 import 'package:atypon_app/state/auth/auth.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +57,7 @@ class LoginScreen extends ConsumerWidget {
           ),
         );
 
-        var resp = User.fromJson(response.body);
+        var resp = User.fromJson(jsonDecode(response.body));
         ref.read(authProvider.notifier).update((state) => state = resp);
         return null;
       },
@@ -106,8 +107,9 @@ class AdminOptionScreen extends ConsumerWidget {
             title: const Text('Manage Roles'),
             onTap: () => goToScreen(context, const ManageRolesScreen()),
           ),
-          const ListTile(
-            title: Text('Manage Users'),
+          ListTile(
+            title: const Text('Manage Users'),
+            onTap: () => goToScreen(context, const ManageUsersScreen()),
           ),
           const ListTile(
             title: Text('Manage Classes'),
