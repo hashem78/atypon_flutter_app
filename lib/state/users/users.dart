@@ -11,7 +11,7 @@ part 'users.g.dart';
 @riverpod
 FutureOr<User> getUser(GetUserRef ref, int userId) async {
   var response = await http.patch(
-    Uri.parse('http://localhost:8080/users/updateUser'),
+    Uri.parse('http://localhost:8080/users/getUser'),
     headers: {
       'Content-Type': 'application/json',
     },

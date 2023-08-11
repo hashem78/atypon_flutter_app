@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:atypon_app/dtos/login_request/loginrequest.dart';
 import 'package:atypon_app/helpers.dart';
 import 'package:atypon_app/models/user/user.dart';
+import 'package:atypon_app/screens/manage_classes/manage_classes_screen.dart';
 import 'package:atypon_app/screens/manage_users/manage_users_screen.dart';
 import 'package:atypon_app/state/auth/auth.dart';
 import 'package:crypto/crypto.dart';
@@ -70,7 +71,7 @@ class LoginScreen extends ConsumerWidget {
           MaterialPageRoute(
             builder: (context) {
               return switch (role.name) {
-                'admin' => const AdminOptionScreen(),
+                'admin' => AdminOptionScreen(user.id),
                 'teacher' => const TeacherOptionScreen(),
                 'student' => const StudentOptionScreen(),
                 _ => const Scaffold(
@@ -91,7 +92,8 @@ class LoginScreen extends ConsumerWidget {
 }
 
 class AdminOptionScreen extends ConsumerWidget {
-  const AdminOptionScreen({super.key});
+  final int id;
+  const AdminOptionScreen(this.id, {super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -111,8 +113,9 @@ class AdminOptionScreen extends ConsumerWidget {
             title: const Text('Manage Users'),
             onTap: () => goToScreen(context, const ManageUsersScreen()),
           ),
-          const ListTile(
-            title: Text('Manage Classes'),
+          ListTile(
+            title: const Text('Manage Classes'),
+            onTap: () => goToScreen(context, ManageClassesScreen(id)),
           ),
           const ListTile(
             title: Text('Manage Grades'),

@@ -11,7 +11,7 @@ part 'roles.g.dart';
 @riverpod
 FutureOr<Role> getRole(GetRoleRef ref, int roleId) async {
   var response = await http.patch(
-    Uri.parse('http://localhost:8080/roles/updateRole'),
+    Uri.parse('http://localhost:8080/roles/getRole'),
     headers: {
       'Content-Type': 'application/json',
     },
