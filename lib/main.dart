@@ -4,6 +4,7 @@ import 'package:atypon_app/dtos/login_request/loginrequest.dart';
 import 'package:atypon_app/helpers.dart';
 import 'package:atypon_app/models/user/user.dart';
 import 'package:atypon_app/screens/manage_classes/manage_classes_screen.dart';
+import 'package:atypon_app/screens/manage_grades/manage_grades_screen.dart';
 import 'package:atypon_app/screens/manage_users/manage_users_screen.dart';
 import 'package:atypon_app/state/auth/auth.dart';
 import 'package:crypto/crypto.dart';
@@ -117,8 +118,9 @@ class AdminOptionScreen extends ConsumerWidget {
             title: const Text('Manage Classes'),
             onTap: () => goToScreen(context, ManageClassesScreen(id)),
           ),
-          const ListTile(
-            title: Text('Manage Grades'),
+          ListTile(
+            title: const Text('Manage Grades'),
+            onTap: () => goToScreen(context, const ManageGradesScreen()),
           ),
         ],
       ),
